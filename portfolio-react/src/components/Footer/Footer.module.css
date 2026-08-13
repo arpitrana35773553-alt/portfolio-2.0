@@ -1,0 +1,38 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+}
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.logo {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+.accent { color: var(--accent); }
+
+.links {
+  display: flex;
+  gap: 1.25rem;
+}
+.links a {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+.links a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.copy {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  color: var(--text-dim);
+}
