@@ -106,31 +106,31 @@ export const skillsData = [
 export const certificatesData = [
   {
     id: 'cert-ds',
-    src: '/assets/certificates/Data Science.jpeg',
+    src: './assets/certificates/Data Science.jpeg',
     alt: 'Data Science Fundamentals Certificate',
     title: 'Data Science Fundamentals',
   },
   {
     id: 'cert-java',
-    src: '/assets/certificates/java.jpeg',
+    src: './assets/certificates/java.jpeg',
     alt: 'Java Programming Certificate',
     title: 'Java Programming',
   },
   {
     id: 'cert-webathon',
-    src: '/assets/certificates/webathon.jpeg',
+    src: './assets/certificates/webathon.jpeg',
     alt: 'Webathon Winner Certificate',
     title: 'Webathon Winner',
   },
   {
     id: 'cert-cyber',
-    src: '/assets/certificates/Cyber.jpeg',
+    src: './assets/certificates/Cyber.jpeg',
     alt: 'Security & Networks Certificate',
     title: 'Security & Networks',
   },
   {
     id: 'cert-time',
-    src: '/assets/certificates/Time.jpeg',
+    src: './assets/certificates/Time.jpeg',
     alt: 'Time Management Professional Certificate',
     title: 'Time Management Professional',
   },
