@@ -16,7 +16,7 @@ export default function Footer() {
           </a>
         </div>
         <div className={styles.copy}>
-          © 2025 FARDEEN RIZVI — Built with React &amp; passion.
+          © 2026 FARDEEN RIZVI — Built with React &amp; passion.
         </div>
       </div>
     </footer>
