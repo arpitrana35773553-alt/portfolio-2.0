@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+portfolio-react/node_modules/
+
+# Production builds
+dist/
+portfolio-react/dist/
+
+# System / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log

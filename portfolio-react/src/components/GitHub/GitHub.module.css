@@ -1,0 +1,51 @@
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  text-align: center;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.ghIcon {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0.85rem 0 0.3rem;
+}
+.subtitle {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 4px;
+  margin: 0 auto 2rem;
+  max-width: 380px;
+}
+.cell {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: var(--border-dim);
+}
+.cellActive {
+  background: var(--accent);
+  box-shadow: 0 0 5px rgba(14, 165, 233, 0.55);
+}
+.cellDim {
+  background: rgba(14, 165, 233, 0.3);
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}

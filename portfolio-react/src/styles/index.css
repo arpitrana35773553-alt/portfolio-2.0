@@ -1,0 +1,252 @@
+/* ============================================================
+   DESIGN SYSTEM — SOFT MIDNIGHT BLUEPRINT
+   Fardeen Rizvi | Data Scientist & Full-Stack Developer
+============================================================ */
+
+/* ---------- CSS Variables (Relaxed Palette) ---------- */
+/* ---------- CSS Variables (Relaxed Liquid Glass Palette) ---------- */
+:root {
+  --bg-primary: #0b0f17;
+  --bg-secondary: #141a26;
+  --bg-card: rgba(18, 25, 42, 0.65);
+  --bg-card-hover: rgba(25, 36, 58, 0.78);
+  --text-primary: #dbe3ee;
+  --text-secondary: #7e8eb0;
+  --text-dim: #3a4866;
+  --accent: #5b9bd5;
+  --accent-glow: #88c0f5;
+  --accent-dark: #3b7bb8;
+  --accent-soft: rgba(91, 155, 213, 0.12);
+  --accent-border: rgba(91, 155, 213, 0.28);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-dim: rgba(255, 255, 255, 0.04);
+  --shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.65);
+  --shadow-accent: 0 8px 30px rgba(91, 155, 213, 0.22);
+  --glow-text: 0 0 25px rgba(91, 155, 213, 0.35);
+  --glass-blur: blur(20px) saturate(180%);
+  --nav-height: 64px;
+  --radius: 0.875rem;
+  --radius-sm: 0.5rem;
+  --radius-lg: 1.25rem;
+  --transition: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Inter', sans-serif;
+  
+  /* Liquid Glass Specular Tokens */
+  --liquid-glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(20, 28, 48, 0.6) 45%, rgba(11, 15, 23, 0.75) 100%);
+  --liquid-glass-border: 1px solid rgba(255, 255, 255, 0.14);
+  --liquid-glass-top-border: rgba(255, 255, 255, 0.35);
+  --liquid-glass-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 2px 0 rgba(0, 0, 0, 0.4), 0 16px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+body.light {
+  --bg-primary: #f0f4f9;
+  --bg-secondary: #e2e9f3;
+  --bg-card: rgba(255, 255, 255, 0.72);
+  --bg-card-hover: rgba(255, 255, 255, 0.88);
+  --text-primary: #151d2a;
+  --text-secondary: #4a5978;
+  --text-dim: #9aa8c0;
+  --accent: #3a7bc0;
+  --accent-glow: #5b9bd5;
+  --accent-dark: #275e9b;
+  --accent-soft: rgba(58, 123, 192, 0.1);
+  --accent-border: rgba(58, 123, 192, 0.25);
+  --border: rgba(255, 255, 255, 0.6);
+  --border-dim: rgba(0, 0, 0, 0.05);
+  --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+  --shadow-accent: 0 6px 22px rgba(58, 123, 192, 0.18);
+  --glow-text: none;
+
+  /* Light Liquid Glass Specular Tokens */
+  --liquid-glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 246, 255, 0.65) 50%, rgba(225, 235, 250, 0.75) 100%);
+  --liquid-glass-border: 1px solid rgba(255, 255, 255, 0.8);
+  --liquid-glass-top-border: rgba(255, 255, 255, 0.95);
+  --liquid-glass-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.9), 0 12px 32px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  transition: background var(--transition), color var(--transition);
+}
+
+::selection {
+  background: rgba(91, 155, 213, 0.25);
+  color: var(--text-primary);
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+section {
+  padding: 5.5rem 0;
+}
+
+/* ---------- Liquid Glass Card ---------- */
+.glass {
+  background: var(--liquid-glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--liquid-glass-border);
+  border-top-color: var(--liquid-glass-top-border);
+  box-shadow: var(--liquid-glass-shadow);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -60%;
+  width: 60%; height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(91, 155, 213, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 55%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), left 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.glass:hover::before {
+  left: 140%;
+}
+
+.glass:hover {
+  border-color: rgba(91, 155, 213, 0.35);
+  border-top-color: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.4), var(--shadow-accent);
+}
+
+/* ---------- Section Header ---------- */
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0.85;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 22px; height: 1px;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+.section-title {
+  font-size: clamp(1.65rem, 3.5vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  position: relative;
+  display: inline-block;
+}
+.section-title span { color: var(--accent); }
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; left: 0;
+  width: 42px; height: 2px;
+  background: var(--accent);
+  opacity: 0.7;
+  border-radius: 2px;
+}
+
+.section-header { margin-bottom: 3rem; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 50px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  letter-spacing: 0.01em;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 14px rgba(91, 155, 213, 0.28);
+}
+.btn-primary:hover {
+  background: var(--accent-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 22px rgba(91, 155, 213, 0.45);
+  color: #fff;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+}
+.btn-outline:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ---------- Fade-Up Animation ---------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--accent-border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
